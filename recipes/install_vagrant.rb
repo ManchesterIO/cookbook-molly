@@ -1,3 +1,5 @@
+include_recipe "mollyproject::setup"
+
 bash 'Setup Molly' do
   cwd '/tmp'
   user node.mollyproject.user
