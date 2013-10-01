@@ -1,6 +1,6 @@
 include_recipe "build-essential"
 include_recipe "git"
-include_recipe "pythonvagra"
+include_recipe "python"
 
 user node.mollyproject.user do
   home node.mollyproject.install_root
