@@ -1,0 +1,5 @@
+name     "mollyproject"
+supports "ubuntu"
+depends  "build-essential"
+depends  "python"
+depends  "supervisor"
