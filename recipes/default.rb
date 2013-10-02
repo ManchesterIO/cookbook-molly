@@ -5,7 +5,7 @@ default_environment = {}
 default_environment['PYTHONPATH'] = '/molly' if node.mollyproject.sandbox
 
 supervisor_service "mollyrest" do
-  command "#{node.mollyproject.install_root}/bin/mollyrest #{"start_debug" if node.mollyproject.debug} #{"-a 0.0.0.0" if node.mollyproject.bind_all}"
+  command "#{node.mollyproject.install_root}/bin/mollyrest start#{"_debug" if node.mollyproject.debug} #{"-a 0.0.0.0" if node.mollyproject.bind_all}"
   user node.mollyproject.user
   environment = { "MOLLY_CONFIG" => node.mollyproject.config }
   environment.update default_environment
@@ -13,7 +13,7 @@ supervisor_service "mollyrest" do
 end
 
 supervisor_service "mollyui" do
-  command "#{node.mollyproject.install_root}/bin/mollyui #{"start_debug" if node.mollyproject.debug} #{"-a 0.0.0.0" if node.mollyproject.bind_all}"
+  command "#{node.mollyproject.install_root}/bin/mollyui start#{"_debug" if node.mollyproject.debug} #{"-a 0.0.0.0" if node.mollyproject.bind_all}"
   user node.mollyproject.user
   environment = {
       "MOLLY_UI_SETTINGS" => node.mollyproject.ui.settings,
