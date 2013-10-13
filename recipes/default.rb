@@ -1,7 +1,9 @@
 include_recipe "mollyproject::setup"
 include_recipe "supervisor"
 
-default_environment = {}
+default_environment = {
+    'PYTHON_EGG_CACHE' => "#{node.mollyproject.install_root}/.egg-cache"
+}
 default_environment['PYTHONPATH'] = '/molly' if node.mollyproject.sandbox
 
 supervisor_service "mollyrest" do
