@@ -11,8 +11,12 @@ directory node.mollyproject.install_root do
   group node.mollyproject.user
 end
 
-%w(libgeos-c1 libprotobuf-dev protobuf-compiler).each { | package | package package }
-%w(compass zurb-foundation).each { | gem | gem_package gem }
+%w(libgeos-c1 libprotobuf-dev protobuf-compiler ruby1.9.3).each { | package | package package }
+%w(compass zurb-foundation).each do | gem |
+  gem_package gem do
+    gem_binary "gem"
+  end
+end
 
 python_virtualenv node.mollyproject.install_root do
   owner node.mollyproject.user
