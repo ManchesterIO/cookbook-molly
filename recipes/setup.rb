@@ -11,7 +11,7 @@ directory node.mollyproject.install_root do
   group node.mollyproject.user
 end
 
-%w(libgeos-c1 libprotobuf-dev protobuf-compiler).each { | package | package package }
+%w(libgeos-c1 libgeos-dev libprotobuf-dev protobuf-compiler).each { | package | package package }
 
 python_virtualenv node.mollyproject.install_root do
   owner node.mollyproject.user
